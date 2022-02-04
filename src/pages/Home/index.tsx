@@ -1,12 +1,23 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
+
+import { NavigationProp, ParamListBase, useNavigation } from '@react-navigation/native';
 import Logo from '../../assets/logo.svg';
 import { Car } from '../../components/Car';
+import {NativeStackScreenProps} from '@react-navigation/native-stack'
+
+type Props = NativeStackScreenProps<any,'Home'>;
 
 import { CardList, Container, Header, HeaderContent, TotalCars } from './styles';
 
 export function Home() {
+  const { navigate }: NavigationProp<ParamListBase> = useNavigation();
+
+  function handleCarDetails() {
+    navigate('CarDetails');
+  }
+
   const dataCard = {
     id: 1,
     brand: 'Audi',
@@ -41,6 +52,7 @@ export function Home() {
         renderItem={({ item }) =>
           <Car
             data={dataCard}
+            onPress={handleCarDetails}
           />
         }
       />

@@ -36,9 +36,16 @@ import {
 } from './styles';
 import { Accessory } from '../../components/Accessory';
 import { RentalPeriod } from '../Scheduling/styles';
+import { NavigationProp, ParamListBase, useNavigation } from '@react-navigation/native';
 
 export function SchedulingDetails() {
+const { navigate }: NavigationProp<ParamListBase> = useNavigation();
   const theme = useTheme();
+
+  function handleConfirmRental() {
+    navigate('Confirmation')
+  }
+
   return (
     <Container>
       <Header>
@@ -120,8 +127,9 @@ export function SchedulingDetails() {
 
       <Footer>
         <Button
-          title='Confirmar'
+          title='Alugar agora'
           color={theme.colors.success}
+          onPress={handleConfirmRental}
         />
       </Footer>
     </Container>

@@ -17,9 +17,15 @@ import {
   Title } from './styles';
 import { Button } from '../../components/Button';
 import { Calendar } from '../../components/Calendar';
+import { NavigationProp, ParamListBase, useNavigation } from '@react-navigation/native';
 
 export function Scheduling() {
+  const { navigate }: NavigationProp<ParamListBase> = useNavigation();
   const theme = useTheme();
+
+  function handleConfirmRental() {
+    navigate('ShedulingDetails')
+  }
   return (
     <Container>
       <StatusBar
@@ -60,6 +66,7 @@ export function Scheduling() {
       <Footer>
         <Button
           title='Confirmar'
+          onPress={handleConfirmRental}
         />
       </Footer>
     </Container>

@@ -1,6 +1,5 @@
 import React from 'react';
-import { RectButtonProps } from 'react-native-gesture-handler'
-import { CarDTO } from '../../dtos/CarDTO';
+import { RectButtonProps } from 'react-native-gesture-handler';
 
 import {
   About,
@@ -14,12 +13,7 @@ import {
   Rent,
   Type
 } from './styles';
-
-// interface Props extends RectButtonProps {
-//   data: CarDTO;
-// }
-
-interface Props {
+interface Props extends RectButtonProps {
   data: Car;
 }
 
