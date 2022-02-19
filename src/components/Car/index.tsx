@@ -1,5 +1,6 @@
-import React from 'react';
-import { RectButtonProps } from 'react-native-gesture-handler';
+import React from "react";
+import { RectButtonProps } from "react-native-gesture-handler";
+import { CarDTO } from "../../dtos/CarDTO";
 
 import {
   About,
@@ -11,21 +12,11 @@ import {
   Period,
   Price,
   Rent,
-  Type
-} from './styles';
-interface Props extends RectButtonProps {
-  data: Car;
-}
+  Type,
+} from "./styles";
 
-interface Car {
-  id: number,
-  brand: string,
-  name: string,
-  rent: {
-    period: string,
-    price: number,
-  },
-  thumbnail: string
+interface Props extends RectButtonProps {
+  data: CarDTO;
 }
 
 export function Car({ data, ...rest }: Props) {
@@ -37,19 +28,18 @@ export function Car({ data, ...rest }: Props) {
 
         <About>
           <Rent>
-            <Period>{data.rent.period}</Period>{'\n'}
+            <Period>{data.rent.period}</Period>
+            {"\n"}
             <Price>{`R$ ${data.rent.price}`}</Price>
           </Rent>
 
-          <Type>
-
-          </Type>
+          <Type></Type>
         </About>
       </Details>
 
       <CarImage
         source={{
-          uri: data.thumbnail
+          uri: data.thumbnail,
         }}
         resizeMode="contain"
       />

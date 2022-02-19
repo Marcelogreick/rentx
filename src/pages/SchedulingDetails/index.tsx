@@ -1,14 +1,17 @@
-import React from 'react';
-import { Feather } from '@expo/vector-icons';
-import { BackButton } from '../../components/BackButton';
-import { ImageSlider } from '../../components/ImageSlider';
-import { Button } from '../../components/Button';
-import { RFValue } from 'react-native-responsive-fontsize';
-import { useTheme } from 'styled-components';
+import React from "react";
+import { Feather } from "@expo/vector-icons";
+import { BackButton } from "../../components/BackButton";
+import { ImageSlider } from "../../components/ImageSlider";
+import { Button } from "../../components/Button";
+import { RFValue } from "react-native-responsive-fontsize";
+import { useTheme } from "styled-components";
 
-import SpeedSvg from '../../assets/speed.svg';
-import AccelerationSvg from '../../assets/acceleration.svg';
-import ForceSvg from '../../assets/force.svg';
+import SpeedSvg from "../../assets/speed.svg";
+import AccelerationSvg from "../../assets/acceleration.svg";
+import ForceSvg from "../../assets/force.svg";
+import Gasoline from "../../assets/gasoline.svg";
+import Exchange from "../../assets/exchange.svg";
+import People from "../../assets/people.svg";
 
 import {
   Brand,
@@ -32,31 +35,35 @@ import {
   RentalPriceLabel,
   RentalPriceDetails,
   RentalPriceQuota,
-  RentalPriceTotal
-} from './styles';
-import { Accessory } from '../../components/Accessory';
-import { RentalPeriod } from '../Scheduling/styles';
-import { NavigationProp, ParamListBase, useNavigation } from '@react-navigation/native';
+  RentalPriceTotal,
+} from "./styles";
+import { Accessory } from "../../components/Accessory";
+import { RentalPeriod } from "../Scheduling/styles";
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from "@react-navigation/native";
 
 export function SchedulingDetails() {
-const { navigate }: NavigationProp<ParamListBase> = useNavigation();
+  const { navigate }: NavigationProp<ParamListBase> = useNavigation();
   const theme = useTheme();
 
   function handleConfirmRental() {
-    navigate('Confirmation')
+    navigate("Confirmation");
   }
 
   return (
     <Container>
       <Header>
-        <BackButton
-          onPress={() => { }}
-        />
+        <BackButton onPress={() => {}} />
       </Header>
 
       <CarImages>
         <ImageSlider
-          imagesUrl={['https://cdn.pixabay.com/photo/2019/05/21/12/28/car-4218972_960_720.png']}
+          imagesUrl={[
+            "https://cdn.pixabay.com/photo/2019/05/21/12/28/car-4218972_960_720.png",
+          ]}
         />
       </CarImages>
 
@@ -74,20 +81,12 @@ const { navigate }: NavigationProp<ParamListBase> = useNavigation();
         </Details>
 
         <Accessories>
-          <Accessory
-            name="380Km/h"
-            icon={SpeedSvg}
-          />
-
-          <Accessory
-            name="3.2s"
-            icon={AccelerationSvg}
-          />
-
-          <Accessory
-            name="800 HP"
-            icon={ForceSvg}
-          />
+          <Accessory name="380Km/h" icon={SpeedSvg} />
+          <Accessory name="3.2s" icon={AccelerationSvg} />
+          <Accessory name="800 HP" icon={ForceSvg} />
+          <Accessory name="Gasolina" icon={Gasoline} />
+          <Accessory name="Auto" icon={Exchange} />
+          <Accessory name="2 Pessoas" icon={People} />
         </Accessories>
 
         <RentalPeriod>
@@ -127,7 +126,7 @@ const { navigate }: NavigationProp<ParamListBase> = useNavigation();
 
       <Footer>
         <Button
-          title='Alugar agora'
+          title="Alugar agora"
           color={theme.colors.success}
           onPress={handleConfirmRental}
         />

@@ -1,11 +1,14 @@
-import React from 'react';
-import { BackButton } from '../../components/BackButton';
-import { ImageSlider } from '../../components/ImageSlider';
-import { Button } from '../../components/Button';
+import React from "react";
+import { BackButton } from "../../components/BackButton";
+import { ImageSlider } from "../../components/ImageSlider";
+import { Button } from "../../components/Button";
 
-import SpeedSvg from '../../assets/speed.svg';
-import AccelerationSvg from '../../assets/acceleration.svg';
-import ForceSvg from '../../assets/force.svg';
+import SpeedSvg from "../../assets/speed.svg";
+import AccelerationSvg from "../../assets/acceleration.svg";
+import ForceSvg from "../../assets/force.svg";
+import Gasoline from "../../assets/gasoline.svg";
+import Exchange from "../../assets/exchange.svg";
+import People from "../../assets/people.svg";
 
 import {
   Brand,
@@ -21,29 +24,33 @@ import {
   Rent,
   About,
   Accessories,
-  Footer
-} from './styles';
-import { Accessory } from '../../components/Accessory';
-import { NavigationProp, ParamListBase, useNavigation } from '@react-navigation/native';
+  Footer,
+} from "./styles";
+import { Accessory } from "../../components/Accessory";
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from "@react-navigation/native";
 
 export function CarDetails() {
   const { navigate }: NavigationProp<ParamListBase> = useNavigation();
 
   function handleConfirmRental() {
-    navigate('Scheduling');
+    navigate("Scheduling");
   }
 
   return (
     <Container>
       <Header>
-        <BackButton
-          onPress={handleConfirmRental}
-        />
+        <BackButton onPress={handleConfirmRental} />
       </Header>
 
       <CarImages>
         <ImageSlider
-          imagesUrl={['https://cdn.pixabay.com/photo/2019/05/21/12/28/car-4218972_960_720.png']}
+          imagesUrl={[
+            "https://cdn.pixabay.com/photo/2019/05/21/12/28/car-4218972_960_720.png",
+          ]}
         />
       </CarImages>
 
@@ -61,33 +68,24 @@ export function CarDetails() {
         </Details>
 
         <Accessories>
-          <Accessory
-            name="380Km/h"
-            icon={SpeedSvg}
-          />
-
-          <Accessory
-            name="3.2s"
-            icon={AccelerationSvg}
-          />
-
-          <Accessory
-            name="800 HP"
-            icon={ForceSvg}
-          />
+          <Accessory name="380Km/h" icon={SpeedSvg} />
+          <Accessory name="3.2s" icon={AccelerationSvg} />
+          <Accessory name="800 HP" icon={ForceSvg} />
+          <Accessory name="Gasolina" icon={Gasoline} />
+          <Accessory name="Auto" icon={Exchange} />
+          <Accessory name="2 Pessoas" icon={People} />
         </Accessories>
 
         <About>
-          Lamborghini é uma fabricante italiana de automóveis
-          desportivos de luxo e de alto desempenho criada
-          originalmente para competir com a Ferrari com
-          sede no município de Sant'Agata Bolognese.
+          Lamborghini é uma fabricante italiana de automóveis desportivos de
+          luxo e de alto desempenho criada originalmente para competir com a
+          Ferrari com sede no município de Sant'Agata Bolognese.
         </About>
       </Content>
 
       <Footer>
         <Button
-          title='Escolher periodo do aluguel'
+          title="Escolher periodo do aluguel"
           onPress={handleConfirmRental}
         />
       </Footer>
